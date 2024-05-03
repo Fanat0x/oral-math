@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 
 gravity = 9.8
-mass = 12
-force = 200
+mass = 1200
+force = 70000
 drag_coef = 0.4
 reference_area = 98.17
 
@@ -41,8 +41,8 @@ def acceleration(force, frottements):
     return 0
 
 for i in range(1, total_time-1):
-    accel = force/mass
-    speed = speed + accel #- (frottements(speed+accel))
+    accel = (force/mass) #- frottements(speed)
+    speed = speed + accel
     X.append(X[i-1] + speed * step_time)
     
     if not canFloat(masse_volumique_eau, volume_eau_deplace, gravity_with_mass()[1]):
