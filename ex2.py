@@ -104,8 +104,6 @@ def main():
     #A vérifier
     for i in range(len(DY)-1):
         D.append(abs(DY[i+1])-abs(DY[i])/abs(DX[i+1])-abs(DX[i]))
-    print(len(D), len(X))
-    print(D)
 
     pX, pY = GetCoord(n, X, Y, D)
 
@@ -114,7 +112,6 @@ def main():
     
 ############## TKINTER ##############
 
-# Create main application window
 root = tk.Tk()
 root.title("HermGUI")
 root.resizable(width=False, height=False)
@@ -129,8 +126,7 @@ def check_n(action, value):
         return True
 
 n_checker = root.register(check_n)
-# Create input fields
-n_label = tk.Label(root, text="Include number of points n:")
+n_label = tk.Label(root, text="Enter number of interpolation points n:")
 n_label.grid(row=0, column=0, columnspan=2, padx=10, pady=5)
 n_entry = tk.Entry(root, width=4, validate="key", validatecommand=(n_checker, '%d', '%P'))
 n_entry.grid(row=0, column=1, columnspan=1, padx=10, pady=5)
@@ -160,9 +156,7 @@ DY_entry = tk.Entry(root, width=31)
 DY_entry.grid(row=5, column=1, padx=10, pady=5)
 DY_entry.insert(0, "-0.1, -3.5, -0.5, -3.0, 0.0, -3.0, 2.0, 1.5, 1.0, -0.1")
 
-# Create Confirm button
 confirm_button = tk.Button(root, text="Confirm", command=main)
 confirm_button.grid(row=6, column=0, columnspan=2, pady=10)
 
-# Start the Tkinter event loop
 root.mainloop()
